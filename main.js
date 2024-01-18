@@ -24,10 +24,10 @@ class Field {
     let letter = move.toUpperCase();
     if (letter === "U") {
       console.log("Moving up!");
-      this.row += 1;
+      this.row -= 1;
     } else if (letter === "D") {
       console.log("Moving down!");
-      this.row -= 1;
+      this.row += 1;
     } else if (letter === "L") {
       console.log("Moving left");
       this.column -= 1;
@@ -38,6 +38,7 @@ class Field {
   }
 
   getCurrentChar() {
+    console.log(this.row);
     return this.field[this.row][this.column];
   }
 
@@ -47,8 +48,8 @@ class Field {
 
   getSize() {
     return {
-      col: this.field[0].length,
       row: this.field.length,
+      col: this.field[0].length,
     };
   }
 
@@ -78,8 +79,9 @@ class Field {
     } else if (currentChar === fieldCharacter) {
       gameIsActive = true;
       console.log("Keep looking for the hat!");
-    } else {
       this.setCurrentChar();
+    } else {
+      
     }
   }
 
@@ -99,4 +101,4 @@ const myField = new Field([
   ["░", "O", "░", "░", "░", "░", "░", "░", "░", "O"],
 ]);
 
-console.log(myField.play());
+myField.play();
